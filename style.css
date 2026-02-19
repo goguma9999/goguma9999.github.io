@@ -1,4 +1,3 @@
-/* 기본 초기화 */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,72 +16,82 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 32px 16px;
+  padding: 40px 16px;
 }
 
-/* 오타 수정: conrainer -> container */
 .container {
   width: 100%;
-  max-width: 600px; /* 가독성을 위해 너비 조절 */
+  max-width: 700px; /* 적절한 너비 설정 */
 }
 
 .header {
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
 }
 
+/* 프로필 카드와 일반 카드 공통 스타일 */
 .profile-card, .section-card {
   background-color: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   border: 1px solid #e5e7eb;
 }
 
-/* 프로필 카드 레이아웃 */
+/* 프로필 레이아웃 전용 */
 .profile-card {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: 24px;
+  grid-template-columns: 120px 1fr;
+  gap: 30px;
   align-items: center;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: linear-gradient(135deg, #6366f1, #a855f7);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
+  box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
 }
 
-.profile-right h2 { font-size: 22px; margin-bottom: 4px; }
-.profile-role { color: #6b7280; font-size: 14px; margin-bottom: 8px; }
+.profile-right h2 { font-size: 26px; margin-bottom: 4px; }
+.profile-role { color: #6b7280; font-size: 15px; margin-bottom: 12px; }
+.summary { font-size: 15px; color: #374151; margin-bottom: 15px; }
 
-.info-item { display: flex; flex-direction: column; }
-.info-label { font-size: 12px; color: #9ca3af; }
-.info-value { font-size: 14px; font-weight: 600; }
+.info-grid {
+  display: flex;
+  gap: 40px;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 15px;
+}
 
-.section-card h3 { font-size: 18px; margin-bottom: 12px; }
+.info-label { display: block; font-size: 12px; color: #9ca3af; }
+.info-value { font-weight: 600; color: #111827; }
+
+/* 상세 섹션 카드 내부 */
+.section-card h3 { font-size: 18px; margin-bottom: 15px; color: #111827; }
+
 .tag-list { list-style: none; display: flex; gap: 8px; flex-wrap: wrap; }
 .tag {
-  background: #eef2ff;
-  color: #4338ca;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 13px;
   font-weight: 500;
 }
 
-.footer { text-align: center; margin-top: 24px; color: #9ca3af; font-size: 12px; }
+.footer { text-align: center; margin-top: 30px; color: #9ca3af; font-size: 13px; }
 
-/* 모바일 대응 */
-@media (max-width: 480px) {
+/* 모바일 화면 (화면이 작아질 때) */
+@media (max-width: 600px) {
   .profile-card {
     grid-template-columns: 1fr;
     text-align: center;
