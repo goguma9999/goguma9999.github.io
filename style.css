@@ -65,16 +65,43 @@ body {
 .profile-role { color: #6b7280; font-size: 15px; margin-bottom: 12px; }
 .summary { font-size: 15px; color: #374151; margin-bottom: 15px; }
 
+/* 정보 그리드: 4컬럼으로 나누고 간격을 조절합니다 */
 .info-grid {
-  display: flex;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4개의 항목을 똑같은 너비로 나눔 */
+  gap: 10px; /* 항목 사이의 최소 간격 */
   border-top: 1px solid #f3f4f6;
-  padding-top: 15px;
+  padding-top: 20px;
+  margin-top: 15px;
 }
 
-.info-label { display: block; font-size: 12px; color: #9ca3af; }
-.info-value { font-weight: 600; color: #111827; }
+.info-item {
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* 글자가 넘칠 때 박스가 깨지는 것 방지 */
+}
 
+.info-label {
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 4px;
+  white-space: nowrap; /* 라벨이 한 줄에 나오도록 */
+}
+
+.info-value {
+  font-weight: 600;
+  font-size: 13px; /* 14px에서 13px로 살짝 조정 */
+  color: #111827;
+  word-break: keep-all;
+}
+
+/* 화면이 좁아지는 모바일 환경에서는 2줄로 나오게 변경 */
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
 /* 상세 섹션 카드 내부 */
 .section-card h3 { font-size: 18px; margin-bottom: 15px; color: #111827; }
 
@@ -98,3 +125,4 @@ body {
     justify-items: center;
   }
 }
+
